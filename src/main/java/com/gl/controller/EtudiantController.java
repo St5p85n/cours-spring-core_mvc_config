@@ -1,11 +1,13 @@
 package com.gl.controller;
 
+import com.gl.exception.ResourceNotFound;
 import com.gl.model.Etudiant;
 import com.gl.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/etudiant")
@@ -24,6 +26,15 @@ public class EtudiantController {
     @GetMapping("/exo")
     public String getNom(){
         return "Diop alpha";
+    }
+
+    @GetMapping("/{id}")
+    public Etudiant findById(@PathVariable("id") int id){
+        Optional<Etudiant> e = etudiantService.findById(id);
+        if(!e.isPresent()){
+            throw new ResourceNotFound("L'etudiant avec l'id "+id+" n'existe pas");
+        }
+        return e.get();
     }
 
     @DeleteMapping("/{id}")

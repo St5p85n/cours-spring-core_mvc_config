@@ -31,4 +31,5 @@ public class EtudiantService {
     public Etudiant update(Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
     }
+
 }
