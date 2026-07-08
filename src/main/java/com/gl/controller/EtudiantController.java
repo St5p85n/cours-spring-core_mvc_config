@@ -4,6 +4,7 @@ import com.gl.exception.ResourceNotFound;
 import com.gl.model.Etudiant;
 import com.gl.service.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,10 @@ public class EtudiantController {
     }
 
     @PostMapping
-    public void save(@RequestBody Etudiant etudiant) {
+    public ResponseEntity<?> save(@RequestBody Etudiant etudiant) {
         etudiantService.save(etudiant);
+        return ResponseEntity.ok().build();
+
     }
     @GetMapping("/exo")
     public String getNom(){

@@ -1,5 +1,6 @@
 package com.gl.controller;
 
+import com.gl.dto.LoginDetails;
 import com.gl.model.LoginRequest;
 import com.gl.model.Utilisateur;
 import com.gl.service.UtilisateurService;
@@ -22,11 +23,14 @@ public class AuthController {
     private UtilisateurService utilisateurService;
 
     @PostMapping("/login")
-    public String login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword())
         );
-        return jwtUtils.generateJwtToken(authentication.getName());
+
+        LoginDetails  loginDetails = new LoginDetails(loginRequest.getUsername(), jwtUtils.generateJwtToken(authentication.getName()));
+        return  ResponseEntity.ok(loginDetails);
+
     }
 
     @PostMapping("/account")
