@@ -110,7 +110,19 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.11.5</version>
         </dependency>
+        <!-- Module API de Springdoc v2 pour Spring MVC (Sans l'UI automatisée de Boot) -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>2.8.17</version>
+        </dependency>
 
+        <!-- L'interface graphique brute de Swagger -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>5.18.2</version>
+        </dependency>
     </dependencies>
 
 </project>
