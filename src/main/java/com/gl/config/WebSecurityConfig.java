@@ -42,8 +42,8 @@ public class WebSecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/etudiant/**").hasRole("ADMIN")
+                        .requestMatchers("/api/auth/**","/etudiantview/**").permitAll()
+                        .requestMatchers("/api/etudiant/**").permitAll()
                         .anyRequest().authenticated()
                 );
         http.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);

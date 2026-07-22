@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>AJOUT OU MODIFICATION</h1>
+    <form th:action="@{/etudiantview}" th:object="${etudiant}" method="post">
+        <label>NOM</label>
+        <input type="text" th:field="*{nom}"><br><br>
+        <label>PRENOM</label>
+        <input type="text" th:field="*{prenom}"><br><br>
+        <label>AGE</label>
+        <input type="number" th:field="*{age}"><br><br>
+        <input type="hidden" th:field="*{id}"><br><br>
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>
