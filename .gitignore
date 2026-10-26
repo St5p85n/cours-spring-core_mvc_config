@@ -1,7 +1,9 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!**/src/main/**/
+target/
+!**/src/test/**/
+target/
 .kotlin
 
 ### IntelliJ IDEA ###
@@ -36,5 +38,6 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_Store.idea/
+.DS_Store
+.idea/
 .DS_Store
